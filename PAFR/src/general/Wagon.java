@@ -1,5 +1,4 @@
 package general;
 
-public interface Wagon extends Rijtuig{
-
+public interface Wagon extends Carriage{
 }
