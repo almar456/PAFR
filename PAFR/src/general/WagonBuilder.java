@@ -1,5 +1,5 @@
 package general;
 
-public interface WagonFactory{
+public interface WagonBuilder{
 	public Wagon buildWagon(String type);
 }

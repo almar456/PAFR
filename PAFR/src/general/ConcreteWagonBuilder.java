@@ -1,8 +1,8 @@
 package general;
 
-public class ConcreteWagonFactory implements WagonFactory{
+public class ConcreteWagonBuilder implements WagonBuilder{
 	
-	public ConcreteWagonFactory() {
+	public ConcreteWagonBuilder() {
 	}
 	
 	@Override
