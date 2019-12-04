@@ -103,7 +103,15 @@ public class PassengerWagon implements Wagon {
 	
 	@Override
 	public String toString() {
-		return "This "+type+" wagon belongs to "+company+".";
+		String str = "This "+type+" wagon belongs to "+company+".\nIt is "+length+"m long and it weighs "+emptyWeight+"kg when empty.\n"
+				+ "There are "+amountSeats+" seats ";
+		if (toilet == true) {
+			str = str + "and one toilet";
+		} else if (toilet == false) {
+			str = str + "and no toilet";
+		}
+		str = str + " on board.\n"
+		+ "This wagon is currently "+status+". It was built in "+constructionYear+".";
+		return str;
 	}
-	
 }
