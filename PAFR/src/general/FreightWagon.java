@@ -14,10 +14,12 @@ public class FreightWagon implements Wagon{
 	public FreightWagon(String type) {
 		this.type = type;
 	}
+
 	
-	public FreightWagon(String type, double length, double emptyWeight, double maxWeight, String cargo,
+	public FreightWagon(int id, String type, double length, double emptyWeight, double maxWeight, String cargo,
 			String company, int constructionYear, String status) {
 		super();
+		this.id = id;
 		this.type = type;
 		this.length = length;
 		this.emptyWeight = emptyWeight;
@@ -27,6 +29,7 @@ public class FreightWagon implements Wagon{
 		this.constructionYear = constructionYear;
 		this.status = status;
 	}
+
 
 	@Override
 	public void setId(int id) {
@@ -51,5 +54,10 @@ public class FreightWagon implements Wagon{
 	@Override
 	public void setStatus(String status) {
 		this.status = status;
+	}
+	
+	@Override
+	public String toString() {
+		return "This "+type+" wagon belongs to "+company+".";
 	}
 }

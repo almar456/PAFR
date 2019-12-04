@@ -12,8 +12,20 @@ public class PassengerWagon implements Wagon {
 	private String status;
 	private double emptyWeight;
 	
-	public PassengerWagon(String type) {
+
+	public PassengerWagon(int id, String type, int amountSeats, boolean silent, double length, boolean toilet,
+			String company, int constructionYear, String status, double emptyWeight) {
+		super();
+		this.id = id;
 		this.type = type;
+		this.amountSeats = amountSeats;
+		this.silent = silent;
+		this.length = length;
+		this.toilet = toilet;
+		this.company = company;
+		this.constructionYear = constructionYear;
+		this.status = status;
+		this.emptyWeight = emptyWeight;
 	}
 
 	@Override
@@ -89,6 +101,7 @@ public class PassengerWagon implements Wagon {
 		this.emptyWeight = emptyWeight;
 	}
 	
+	@Override
 	public String toString() {
 		return "This "+type+" wagon belongs to "+company+".";
 	}
