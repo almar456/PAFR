@@ -59,7 +59,7 @@ public class FreightWagon implements Wagon{
 	@Override
 	public String toString() {
 		return "This "+type+" wagon belongs to "+company+".\nIt is "+length+"m long and it weighs "+emptyWeight+"kg when empty.\n"
-				+ "The maximum supported cargo capacity is "+(maxWeight-emptyWeight)+".\n"
+				+ "The maximum supported cargo capacity is "+(maxWeight-emptyWeight)+"kg.\n"
 				+ "This wagon is currently "+status+". It was built in "+constructionYear+" and currently contains "+cargo+".";
 	}
 }
