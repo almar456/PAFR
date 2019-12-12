@@ -1,14 +1,88 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.*?>
+<?import javafx.collections.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="411.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
+<AnchorPane prefHeight="567.0" prefWidth="898.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
   <!-- TODO Add Nodes -->
   <children>
-    <AnchorPane layoutX="0.0" layoutY="0.0" prefHeight="323.0" prefWidth="419.0" />
-    <Button layoutX="182.0" layoutY="354.0" mnemonicParsing="false" text="Dit is ziek gap" />
+    <AnchorPane layoutX="0.0" layoutY="0.0" prefHeight="323.0" prefWidth="419.0">
+      <children>
+        <TextField cache="true" cacheHint="DEFAULT" layoutX="61.0" layoutY="271.0" opacity="1.0" prefWidth="220.0" text="Geef de trein een naam" />
+        <ChoiceBox layoutX="335.0" layoutY="270.0" maxWidth="80.0">
+          <items>
+            <FXCollections fx:factory="observableArrayList">
+              <String fx:value="Item 1" />
+              <String fx:value="Item 2" />
+              <String fx:value="Item 3" />
+            </FXCollections>
+          </items>
+        </ChoiceBox>
+      </children>
+    </AnchorPane>
+    <Button layoutX="61.0" layoutY="394.0" mnemonicParsing="false" text="Wagon toevoegen" />
+    <Button layoutX="335.0" layoutY="394.0" mnemonicParsing="false" text="Wagon verwijderen" />
+    <Button layoutX="591.0" layoutY="354.0" mnemonicParsing="false" text="Wagon aan trein toevoegen" />
+    <Button layoutX="591.0" layoutY="502.0" minWidth="252.0" mnemonicParsing="false" text="Wagon van trein afhalen" />
+    <Button layoutX="336.0" layoutY="307.0" minWidth="185.0" mnemonicParsing="false" text="Trein verwijderen" />
+    <Button layoutX="61.0" layoutY="307.0" minWidth="178.0" mnemonicParsing="false" text="Trein toevoegen">
+      <font>
+        <Font size="18.0" />
+      </font>
+    </Button>
+    <TextField cache="true" cacheHint="DEFAULT" layoutX="61.0" layoutY="356.0" opacity="1.0" prefWidth="220.0" text="Geef de wagon een naam" />
+    <ChoiceBox layoutX="335.0" layoutY="354.0" maxWidth="80.0">
+      <items>
+        <FXCollections fx:factory="observableArrayList">
+          <String fx:value="Item 1" />
+          <String fx:value="Item 2" />
+          <String fx:value="Item 3" />
+        </FXCollections>
+      </items>
+    </ChoiceBox>
+    <ChoiceBox layoutX="732.0" layoutY="269.0" maxWidth="80.0">
+      <items>
+        <FXCollections fx:factory="observableArrayList">
+          <String fx:value="Item 1" />
+          <String fx:value="Item 2" />
+          <String fx:value="Item 3" />
+        </FXCollections>
+      </items>
+    </ChoiceBox>
+    <ChoiceBox layoutX="732.0" layoutY="314.0" maxWidth="80.0">
+      <items>
+        <FXCollections fx:factory="observableArrayList">
+          <String fx:value="Item 1" />
+          <String fx:value="Item 2" />
+          <String fx:value="Item 3" />
+        </FXCollections>
+      </items>
+    </ChoiceBox>
+    <TextField editable="false" layoutX="591.0" layoutY="270.0" prefWidth="101.0" text="Wagon" />
+    <TextField editable="false" layoutX="591.0" layoutY="315.0" prefWidth="101.0" text="Trein" />
+    <TextField editable="false" layoutX="591.0" layoutY="410.0" prefWidth="101.0" text="Wagon" />
+    <TextField editable="false" layoutX="591.0" layoutY="453.0" prefWidth="101.0" text="Trein" />
+    <ChoiceBox layoutX="732.0" layoutY="410.0" maxWidth="80.0">
+      <items>
+        <FXCollections fx:factory="observableArrayList">
+          <String fx:value="Item 1" />
+          <String fx:value="Item 2" />
+          <String fx:value="Item 3" />
+        </FXCollections>
+      </items>
+    </ChoiceBox>
+    <ChoiceBox layoutX="732.0" layoutY="452.0" maxWidth="80.0">
+      <items>
+        <FXCollections fx:factory="observableArrayList">
+          <String fx:value="Item 1" />
+          <String fx:value="Item 2" />
+          <String fx:value="Item 3" />
+        </FXCollections>
+      </items>
+    </ChoiceBox>
   </children>
 </AnchorPane>
