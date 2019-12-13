@@ -13,9 +13,9 @@ public class Testclass extends Application{
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		try {
-			FXMLLoader loader = new FXMLLoader(new File("C:\\Users\\Almar\\PAFR\\PAFR\\general\\resources\\sample.fxml").toURI().toURL());
-			Parent root = loader.load();;
+	try {
+		FXMLLoader loader = new FXMLLoader(new File("C:\\Users\\Almar\\PAFR\\PAFR\\resources\\NewTrain.fxml").toURI().toURL());
+		Parent root = loader.load();
 
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
