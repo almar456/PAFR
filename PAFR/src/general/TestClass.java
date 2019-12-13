@@ -7,6 +7,8 @@ import java.sql.DriverManager;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
+import persistence.FreightWagonPostgresDAOImpl;
+import persistence.PassengerWagonPostgresDAOImpl;
 import persistence.TrainPostgresDAOImpl;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -33,8 +35,16 @@ public class Testclass extends Application{
     //JavaFX test
     //launch(args);
     
-    //PostgresDB test	
-    //TrainPostgresDAOImpl pt1 = new TrainPostgresDAOImpl();
-    //pt1.addTrain("Thalys", 9, 2000, 20000, "Electric", 230, 2012, "Prorail");
+    //PostgresDB train test	
+    //TrainPostgresDAOImpl tt1 = new TrainPostgresDAOImpl();
+    //tt1.addTrain("Thalys", 9, 2000, 20000, "Electric", 230, 2012, "Prorail");
+    	
+	//PostgresDB FreightWagon test	
+    //FreightWagonPostgresDAOImpl fwt1 = new FreightWagonPostgresDAOImpl();
+    //fwt1.addFreightWagon("Freight", 4, 1500, 4000, "Graafmachines", "NS", 1992);
+    	
+	//PostgresDB PassengerWagon test	
+    PassengerWagonPostgresDAOImpl pwt1 = new PassengerWagonPostgresDAOImpl();
+    pwt1.addPassengerWagon("Passenger", 50, true, 4000, true, "NS", 1992, 2500);
     }
 }
