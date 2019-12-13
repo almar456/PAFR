@@ -2,8 +2,12 @@ package general;
 
 import java.io.File;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+
 import javafx.application.Application;
 import javafx.stage.Stage;
+import persistence.TrainPostgresDAOImpl;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -26,6 +30,11 @@ public class Testclass extends Application{
 	}
        
     public static void main(String[] args) {
-      launch(args);
+    //JavaFX test
+    //launch(args);
+    
+    //PostgresDB test	
+    //TrainPostgresDAOImpl pt1 = new TrainPostgresDAOImpl();
+    //pt1.addTrain("Thalys", 9, 2000, 20000, "Electric", 230, 2012, "Prorail");
     }
-	}
+}
