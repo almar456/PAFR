@@ -11,5 +11,5 @@ module pafr {
     requires transitive javafx.graphics;
 	requires transitive javafx.fxml;
 	requires transitive java.sql;
-    exports general;
+    exports domain;
 }

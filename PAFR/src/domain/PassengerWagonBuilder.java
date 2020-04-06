@@ -1,12 +1,10 @@
-package general;
+package domain;
 
-public class PassengerWagonFactory implements WagonFactory{
+public class PassengerWagonBuilder implements WagonBuilderFactoryInterface{
 	private int id;
 	private String type;
 	private double length;
-	private double emptyWeight;
-	private double maxWeight;
-	private String cargo;
+	private double weight;
 	private String company;
 	private int constructionYear;
 	private String status;
@@ -14,14 +12,14 @@ public class PassengerWagonFactory implements WagonFactory{
 	private boolean silent;
 	private boolean toilet;
 	
-	public PassengerWagonFactory(String type) {
+	public PassengerWagonBuilder(String type) {
 		this.type = type;
 	}
 	
 	@Override
 	public Wagon build() {
 			return new PassengerWagon(id, type, amountSeats, silent, length, toilet,
-					company, constructionYear, status, emptyWeight);
+					company, constructionYear, status, weight);
 	}
 
 	public void setId(int id) {
@@ -38,18 +36,8 @@ public class PassengerWagonFactory implements WagonFactory{
 	}
 
 	
-	public void setEmptyWeight(double emptyWeight) {
-		this.emptyWeight = emptyWeight;
-	}
-
-	
-	public void setMaxWeight(double maxWeight) {
-		this.maxWeight = maxWeight;
-	}
-
-	
-	public void setCargo(String cargo) {
-		this.cargo = cargo;
+	public void setWeight(double weight) {
+		this.weight = weight;
 	}
 
 	

@@ -1,4 +1,4 @@
-package general;
+package domain;
 
 public interface Carriage {
 	

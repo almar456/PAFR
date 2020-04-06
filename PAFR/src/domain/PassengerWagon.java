@@ -1,4 +1,4 @@
-package general;
+package domain;
 
 public class PassengerWagon implements Wagon {
 	private int id;
@@ -10,11 +10,11 @@ public class PassengerWagon implements Wagon {
 	private String company;
 	private int constructionYear;
 	private String status;
-	private double emptyWeight;
+	private double weight;
 	
 
 	public PassengerWagon(int id, String type, int amountSeats, boolean silent, double length, boolean toilet,
-			String company, int constructionYear, String status, double emptyWeight) {
+			String company, int constructionYear, String status, double weight) {
 		super();
 		this.id = id;
 		this.type = type;
@@ -25,7 +25,7 @@ public class PassengerWagon implements Wagon {
 		this.company = company;
 		this.constructionYear = constructionYear;
 		this.status = status;
-		this.emptyWeight = emptyWeight;
+		this.weight = weight;
 	}
 
 	@Override
@@ -93,17 +93,17 @@ public class PassengerWagon implements Wagon {
 		this.status = status;
 	}
 
-	public double getEmptyWeight() {
-		return emptyWeight;
+	public double getWeight() {
+		return weight;
 	}
 
-	public void setEmptyWeight(double emptyWeight) {
-		this.emptyWeight = emptyWeight;
+	public void setWeight(double weight) {
+		this.weight = weight;
 	}
 	
 	@Override
 	public String toString() {
-		String str = "This "+type+" wagon belongs to "+company+".\nIt is "+length+"m long and it weighs "+emptyWeight+"kg when empty.\n"
+		String str = "This "+type+" wagon belongs to "+company+".\nIt is "+length+"m long and it weighs "+weight+"kg.\n"
 				+ "There are "+amountSeats+" seats ";
 		if (toilet == true) {
 			str = str + "and one toilet";
