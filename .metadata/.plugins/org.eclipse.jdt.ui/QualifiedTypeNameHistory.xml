@@ -5,9 +5,4 @@
     <fullyQualifiedTypeName name="javafx.scene.Scene"/>
     <fullyQualifiedTypeName name="javafx.scene.Parent"/>
     <fullyQualifiedTypeName name="java.io.File"/>
-    <fullyQualifiedTypeName name="java.sql.Connection"/>
-    <fullyQualifiedTypeName name="java.sql.Statement"/>
-    <fullyQualifiedTypeName name="persistence.TrainPostgresDAOImpl"/>
-    <fullyQualifiedTypeName name="persistence.FreightWagonPostgresDAOImpl"/>
-    <fullyQualifiedTypeName name="persistence.PassengerWagonPostgresDAOImpl"/>
 </qualifiedTypeNameHistroy>
