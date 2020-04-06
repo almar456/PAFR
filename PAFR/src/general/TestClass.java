@@ -33,15 +33,15 @@ public class Testclass extends Application{
        
     public static void main(String[] args) {
     //JavaFX test
-    //launch(args);
+    launch(args);
     
     //PostgresDB train test	
-    //TrainPostgresDAOImpl tt1 = new TrainPostgresDAOImpl();
-    //tt1.addTrain("Thalys", 9, 2000, 20000, "Electric", 230, 2012, "Prorail");
+    TrainPostgresDAOImpl tt1 = new TrainPostgresDAOImpl();
+    tt1.addTrain("Thalys", 9, 2000, 20000, "Electric", 230, 2012, "Prorail");
     	
 	//PostgresDB FreightWagon test	
-    //FreightWagonPostgresDAOImpl fwt1 = new FreightWagonPostgresDAOImpl();
-    //fwt1.addFreightWagon("Freight", 4, 1500, 4000, "Graafmachines", "NS", 1992);
+    FreightWagonPostgresDAOImpl fwt1 = new FreightWagonPostgresDAOImpl();
+    fwt1.addFreightWagon("Freight", 4, 1500, 4000, "Graafmachines", "NS", 1992);
     	
 	//PostgresDB PassengerWagon test	
     PassengerWagonPostgresDAOImpl pwt1 = new PassengerWagonPostgresDAOImpl();
