@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.collections.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="controllers.AddToTrainController">
+  <!-- TODO Add Nodes -->
+  <children>
+    <Pane layoutX="0.0" layoutY="0.0" prefHeight="200.0" prefWidth="294.0">
+      <children>
+        <Label layoutX="61.0" layoutY="27.0" text="Add wagon to train">
+          <font>
+            <Font size="20.0" />
+          </font>
+        </Label>
+        <Label layoutX="33.0" layoutY="83.0" text="Train id:" />
+        <Label fx:id="trainIdLabel" layoutX="123.0" layoutY="83.0" text="Label" />
+        <Label layoutX="33.0" layoutY="125.0" text="Wagon:" />
+        <ComboBox fx:id="wagonInput" layoutX="123.0" layoutY="123.0" prefHeight="21.0" prefWidth="156.0">
+          <items>
+            <FXCollections fx:factory="observableArrayList" />
+          </items>
+        </ComboBox>
+        <Button fx:id="cancelButton" layoutX="48.0" layoutY="173.0" mnemonicParsing="false" onAction="#onCancelClick" text="Cancel" />
+        <Button fx:id="addButton" layoutX="194.0" layoutY="173.0" mnemonicParsing="false" onAction="#onAddClick" text="Add" />
+        <Label fx:id="responseLabel" layoutX="14.0" layoutY="151.0" prefWidth="266.0" text="" />
+      </children>
+    </Pane>
+  </children>
+</AnchorPane>

@@ -26,7 +26,7 @@ public class Main extends Application{
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 	try {
-		AnchorPane firstPane = (AnchorPane) FXMLLoader.load(getClass().getClassLoader().getResource("NewPWagon.fxml"));
+		AnchorPane firstPane = (AnchorPane) FXMLLoader.load(getClass().getClassLoader().getResource("AddToTrain.fxml"));
 		
         primaryStage.setScene(new Scene(firstPane));
         primaryStage.show();

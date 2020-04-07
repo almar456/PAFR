@@ -4,7 +4,9 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
+import domain.FreightWagon;
 import domain.PassengerWagon;
 import domain.PassengerWagonBuilder;
 
@@ -72,16 +74,21 @@ private static PassengerWagonPostgresDAOImpl mInstance;
 	public boolean deletePassengerWagon(int id) {
 		Connection myConn = super.getConnection();
 		Statement stmt;
-		try {
-			stmt = myConn.createStatement();
-			String statement = "DELETE FROM PassengerWagons WHERE ID = "+id;
-			stmt.execute(statement);
-			myConn.close();
-			return true;
-		} catch (SQLException e) {
-			e.printStackTrace();
+		PassengerWagon prw = this.getPassengerWagon(id);
+		if (prw.getTrainId() != 0) {
 			return false;
-		}		
+		} else {
+			try {
+				stmt = myConn.createStatement();
+				String statement = "DELETE FROM PassengerWagons WHERE ID = "+id;
+				stmt.execute(statement);
+				myConn.close();
+				return true;
+			} catch (SQLException e) {
+				e.printStackTrace();
+				return false;
+			}
+		}
 	}
 	
 	@Override
@@ -119,5 +126,46 @@ private static PassengerWagonPostgresDAOImpl mInstance;
 		} catch (SQLException e) {
 			return false;
 		}
+	}
+	
+	@Override
+	public boolean connectWagon(int wagonId, int trainId) {
+		String statement = ("update passengerwagons set trainid = "+trainId+" where id = " + wagonId);
+		Connection myConn = super.getConnection();
+		Statement stm;
+		try {
+			stm = myConn.createStatement();
+			stm.execute(statement);
+			myConn.close();
+			return true;
+		} catch (SQLException e) {
+			return false;
+		}
+	}
+
+	@Override
+	public ArrayList<String> getIdByTrain(int trainId) {
+		ArrayList<String> lst = new ArrayList<String>();
+		String statement;
+		
+		if (trainId == 0) {
+			statement = "SELECT id,type FROM PassengerWAGONS WHERE TRAINID is null";
+		} else {
+			statement = "SELECT id,type FROM PassengerWAGONS WHERE TRAINID = "+ trainId;
+		}
+		
+		try {
+			Connection myConn = super.getConnection();
+			Statement stm = myConn.createStatement();
+			ResultSet rs = stm.executeQuery(statement);
+			while(rs.next()) {
+				lst.add(rs.getString(2)+" "+rs.getInt(1));
+			}
+			myConn.close();
+		}catch(Exception exc){
+			exc.printStackTrace();
+		}
+		
+		return lst;
 	}
 }

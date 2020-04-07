@@ -73,7 +73,7 @@ public class FreightWagonPostgresDAOImpl extends PostgresBaseDAO implements Frei
 		Connection myConn = super.getConnection();
 		Statement stmt;
 		FreightWagon frw = this.getFreightWagon(id);
-		if (frw.getTrainId() == 0) {
+		if (frw.getTrainId() != 0) {
 			return false;
 		} else {
 			try {
@@ -108,6 +108,21 @@ public class FreightWagonPostgresDAOImpl extends PostgresBaseDAO implements Frei
 		return false;
 	}
 	}
+	
+	@Override
+	public boolean connectWagon(int wagonId, int trainId) {
+		String statement = ("update freightwagons set trainid = "+trainId+" where id = " + wagonId);
+		Connection myConn = super.getConnection();
+		Statement stm;
+		try {
+			stm = myConn.createStatement();
+			stm.execute(statement);
+			myConn.close();
+			return true;
+		} catch (SQLException e) {
+			return false;
+		}
+	}
 
 	@Override
 	public boolean disconnectWagon(int id) {
@@ -122,5 +137,30 @@ public class FreightWagonPostgresDAOImpl extends PostgresBaseDAO implements Frei
 		} catch (SQLException e) {
 			return false;
 		}
+	}
+
+	@Override
+	public ArrayList<String> getIdByTrain(int trainId) {
+		ArrayList<String> lst = new ArrayList<String>();
+		String statement;
+		
+		if (trainId == 0) {
+			statement = "SELECT id,type FROM FREIGHTWAGONS WHERE TRAINID is null";
+		} else {
+			statement = "SELECT id,type FROM FREIGHTWAGONS WHERE TRAINID = "+ trainId;
+		}
+		try {
+			Connection myConn = super.getConnection();
+			Statement stm = myConn.createStatement();
+			ResultSet rs = stm.executeQuery(statement);
+			while(rs.next()) {
+				lst.add(rs.getString(2)+" "+rs.getInt(1));
+			}
+			myConn.close();
+		}catch(Exception exc){
+			exc.printStackTrace();
+		}
+		
+		return lst;
 	}
 }

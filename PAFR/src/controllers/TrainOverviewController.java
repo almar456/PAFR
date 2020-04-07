@@ -1,7 +1,11 @@
 package controllers;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
+
+import domain.DomainFacade;
+import domain.Train;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -49,10 +53,13 @@ public class TrainOverviewController {
     private Button submitButton;
 
     @FXML
-    private ComboBox<?> wagonInput;
+    private ComboBox<String> wagonInput;
 
     @FXML
     private TextField weightInput;
+    
+    @FXML
+    private TextField speedInput;
 
     @FXML
     private Label yearLabel;
@@ -68,10 +75,27 @@ public class TrainOverviewController {
 
     @FXML
     void onDeleteClick(ActionEvent event) {
+    	DomainFacade dfc = new DomainFacade();
+    	if(dfc.deleteTrainFromDb(Integer.parseInt(idLabel.getText()))) {
+    		responseLabel.setText("Train succesfully deleted.");
+    	} else {
+    		responseLabel.setText("Something went wrong, train not deleted.");
+    	};
     }
 
     @FXML
     void onSubmitClick(ActionEvent event) {
+    	DomainFacade dfc = new DomainFacade();
+    	if(dfc.updateTrain(Integer.parseInt(idLabel.getText()), Double.parseDouble(lengthInput.getText()), Double.parseDouble(weightInput.getText()), propInput.getText(), Double.parseDouble(speedInput.getText()), companyInput.getText(), statusInput.getText())) {
+    		responseLabel.setText("Train succesfully updated.");
+    	} else {
+    		responseLabel.setText("Something went wrong, train not updated.");
+    	};
+    }
+    
+    @FXML
+    void onCWagonClick(ActionEvent event) {
+        System.out.print(wagonInput.getValue());
     }
 
     @FXML
@@ -89,8 +113,24 @@ public class TrainOverviewController {
         assert wagonInput != null : "fx:id=\"wagonInput\" was not injected: check your FXML file 'TrainOverview.fxml'.";
         assert weightInput != null : "fx:id=\"weightInput\" was not injected: check your FXML file 'TrainOverview.fxml'.";
         assert yearLabel != null : "fx:id=\"yearLabel\" was not injected: check your FXML file 'TrainOverview.fxml'.";
-
-
+        assert speedInput != null : "fx:id=\"speedInput\" was not injected: check your FXML file 'TrainOverview.fxml'.";
+        
+        DomainFacade dfc = new DomainFacade();
+        
+        Train tr = dfc.getTrainFromDb(1);
+        
+        yearLabel.setText(""+tr.getConstructionYear());
+        idLabel.setText(""+tr.getId());
+        speedInput.setText(""+tr.getMaxSpeed());
+        propInput.setText(tr.getPropulsion());
+        statusInput.setText(tr.getStatus());
+        companyInput.setText(tr.getCompany());
+        weightInput.setText(""+tr.getWeight());
+        lengthInput.setText(""+tr.getLength());
+        ArrayList<String> lst = dfc.getIdsByTrain(Integer.parseInt(idLabel.getText()));
+        
+        wagonInput.getItems().addAll(lst);
+        wagonInput.getSelectionModel().select(0);
     }
 
 }
