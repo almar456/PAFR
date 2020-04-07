@@ -11,10 +11,11 @@ public class PassengerWagon implements Wagon {
 	private int constructionYear;
 	private String status;
 	private double weight;
+	private int trainId;
 	
 
 	public PassengerWagon(int id, String type, int amountSeats, boolean silent, double length, boolean toilet,
-			String company, int constructionYear, String status, double weight) {
+			String company, int constructionYear, String status, double weight, int trainId) {
 		super();
 		this.id = id;
 		this.type = type;
@@ -26,11 +27,32 @@ public class PassengerWagon implements Wagon {
 		this.constructionYear = constructionYear;
 		this.status = status;
 		this.weight = weight;
+		this.trainId = trainId;
 	}
 
 	@Override
 	public void setId(int id) {
 		this.id = id;
+	}
+	
+	public int getTrainId() {
+		return trainId;
+	}
+
+	public void setTrainId(int trainId) {
+		this.trainId = trainId;
+	}
+
+	public int getId() {
+		return id;
+	}
+	
+	public boolean getSilent() {
+		return silent;
+	}
+	
+	public boolean getToilet() {
+		return toilet;
 	}
 
 	public String getType() {

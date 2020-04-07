@@ -11,6 +11,11 @@ public class PassengerWagonBuilder implements WagonBuilderFactoryInterface{
 	private int amountSeats;
 	private boolean silent;
 	private boolean toilet;
+	private int trainId;
+	
+	public PassengerWagonBuilder() {
+		this.type = type;
+	}
 	
 	public PassengerWagonBuilder(String type) {
 		this.type = type;
@@ -19,7 +24,21 @@ public class PassengerWagonBuilder implements WagonBuilderFactoryInterface{
 	@Override
 	public Wagon build() {
 			return new PassengerWagon(id, type, amountSeats, silent, length, toilet,
-					company, constructionYear, status, weight);
+					company, constructionYear, status, weight, trainId);
+	}
+	
+	@Override
+	public PassengerWagon buildWithId() {
+		return new PassengerWagon(id, type, amountSeats, silent, length, toilet,
+				company, constructionYear, status, weight, trainId);
+	}
+
+	public int getTrainId() {
+		return trainId;
+	}
+
+	public void setTrainId(int trainId) {
+		this.trainId = trainId;
 	}
 
 	public void setId(int id) {
@@ -65,5 +84,8 @@ public class PassengerWagonBuilder implements WagonBuilderFactoryInterface{
 		this.toilet = toilet;
 	}
 
-	
+	public void setConstructionYear(int constructionYear) {
+		this.constructionYear = constructionYear;
+	}
+
 }

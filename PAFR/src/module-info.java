@@ -12,4 +12,6 @@ module pafr {
 	requires transitive javafx.fxml;
 	requires transitive java.sql;
     exports domain;
+    exports controllers;
+    opens controllers;
 }

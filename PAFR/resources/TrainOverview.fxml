@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.collections.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="428.0000999999975" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="controllers.TrainOverviewController">
+  <!-- TODO Add Nodes -->
+  <children>
+    <Pane layoutX="0.0" layoutY="0.0" prefHeight="428.0001220703125" prefWidth="410.0">
+      <children>
+        <Label layoutX="181.0" layoutY="20.0" text="Train">
+          <font>
+            <Font size="20.0" />
+          </font>
+        </Label>
+        <Label layoutX="8.0" layoutY="65.0" text="Length:" />
+        <Label layoutX="8.0" layoutY="107.0" text="Weight:" />
+        <Label layoutX="6.0" layoutY="146.0" text="Propulsion:" />
+        <Label layoutX="8.0" layoutY="188.0" text="Company:" />
+        <Label layoutX="8.0" layoutY="260.0" text="Construction Year:" />
+        <Label layoutX="8.0" layoutY="225.0" text="Status" />
+        <Label fx:id="yearLabel" layoutX="189.0" layoutY="260.0" text="Label" />
+        <TextField fx:id="lengthInput" layoutX="189.0" layoutY="59.0" prefWidth="200.0" />
+        <TextField fx:id="weightInput" layoutX="189.0" layoutY="104.0" prefWidth="200.0" />
+        <TextField id="cargoInput" fx:id="propInput" layoutX="189.0" layoutY="143.0" prefWidth="200.0" />
+        <TextField fx:id="companyInput" layoutX="189.0" layoutY="185.0" prefWidth="200.0" />
+        <TextField fx:id="statusInput" layoutX="189.0" layoutY="222.0" prefWidth="200.0" />
+        <Label fx:id="responseLabel" layoutX="14.0" layoutY="366.0" prefWidth="382.0" text="" textAlignment="CENTER" />
+        <Label layoutX="8.0" layoutY="307.0" text="Id:" />
+        <Label fx:id="idLabel" layoutX="189.0" layoutY="307.0" text="Label" />
+        <Label layoutX="8.0" layoutY="344.0" text="Attached wagons:" />
+        <ComboBox fx:id="wagonInput" layoutX="189.0" layoutY="345.0" prefHeight="21.0" prefWidth="200.0">
+          <items>
+            <FXCollections fx:factory="observableArrayList">
+              <String fx:value="Item 1" />
+              <String fx:value="Item 2" />
+              <String fx:value="Item 3" />
+            </FXCollections>
+          </items>
+        </ComboBox>
+      </children>
+    </Pane>
+    <Button fx:id="backButton" layoutX="24.0" layoutY="393.0" mnemonicParsing="false" onAction="#onBackClick" text="Back" />
+    <Button fx:id="deleteButton" layoutX="105.0" layoutY="393.0" mnemonicParsing="false" onAction="#onDeleteClick" text="Delete" />
+    <Button fx:id="submitButton" layoutX="282.0" layoutY="393.0" mnemonicParsing="false" onAction="#onSubmitClick" text="Submit Changes" />
+    <Button id="dcButton" fx:id="addButton" layoutX="189.0" layoutY="393.0" mnemonicParsing="false" onAction="#onAddClick" text="Add wagon" />
+  </children>
+</AnchorPane>
